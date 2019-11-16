@@ -43,25 +43,7 @@ def recite(start_verse=1, end_verse=1):
 
     return_lyric = []
     for item in gave_list[start_verse-1:end_verse]:
-        # print(item['day'], item['sentence'][0])
         return_lyric.append(f"On the {item['day']} day of Christmas my true love gave to me: "
                             f"{ return_sentence(item['sentence'])}")
 
     return return_lyric
-
-
-if __name__=='__main__':
-    expected = [
-        "On the third day of Christmas my true love gave to me: "
-        "three French Hens, "
-        "two Turtle Doves, "
-        "and a Partridge in a Pear Tree."
-    ]
-
-    print(expected)
-    print(recite(3, 3))
-    # recite(3, 3)
-    # print(return_sentence(['three French Hens', 'two Turtle Doves', 'a Partridge in a Pear Tree.']))
-
-    # ['two Turtle Doves', 'a Partridge in a Pear Tree.']
-    # print(return_sentence(expected))
