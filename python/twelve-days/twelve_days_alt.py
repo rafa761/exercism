@@ -22,7 +22,4 @@ def recite_verse(verse_num: int) -> str:
 
 
 def recite(start_verse: int, end_verse: int) -> List[str]:
-    output = []
-    for n in range(start_verse, end_verse + 1):
-        output.append(recite_verse(n))
-    return output
+    return [recite_verse(n) for n in range(start_verse, end_verse + 1)]

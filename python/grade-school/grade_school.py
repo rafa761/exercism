@@ -1,6 +1,6 @@
 class School(object):
     def __init__(self):
-        self.students = list()
+        self.students = []
 
     def add_student(self, name, grade):
         # Add the student information as a list in list of students

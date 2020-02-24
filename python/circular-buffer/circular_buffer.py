@@ -9,7 +9,7 @@ class BufferEmptyException(Exception):
 class CircularBuffer(object):
     def __init__(self, capacity):
         self.buffer = []
-        for num in range(capacity):
+        for _ in range(capacity):
             self.buffer.append([])
 
     def read(self):
@@ -17,9 +17,7 @@ class CircularBuffer(object):
 
     def write(self, data):
         for num in range(len(self.buffer)):
-            if str(self.buffer[num]).isalnum():
-                pass
-            else:
+            if not str(self.buffer[num]).isalnum():
                 self.buffer[num] = data
 
     def overwrite(self, data):

@@ -31,36 +31,24 @@ def parse_markdown(markdown=str):
 
         match_asterisk = re.match(r'\* (.*)', line)
         if match_asterisk:
+            text = match_asterisk.group(1)
+
+            # Simplified check for strong
+            check_strong = re.match('(.*)__(.*)__(.*)', text)
+            if check_strong:
+                text = format_strong(check_strong)
+
+            # Simplified check for italic
+            check_italic = re.match('(.*)_(.*)_(.*)', text)
+            if check_italic:
+                text = format_italic(check_italic)
+
             if not in_list:
                 in_list = True
-                text = match_asterisk.group(1)
-
-                # Simplified check for strong
-                check_strong = re.match('(.*)__(.*)__(.*)', text)
-                if check_strong:
-                    text = format_strong(check_strong)
-
-                # Simplified check for italic
-                check_italic = re.match('(.*)_(.*)_(.*)', text)
-                if check_italic:
-                    text = format_italic(check_italic)
-
                 line = '<ul><li>' + text + '</li>'
 
             else:
                 is_italic = False
-                text = match_asterisk.group(1)
-
-                # Simplified check for strong
-                check_strong = re.match('(.*)__(.*)__(.*)', text)
-                if check_strong:
-                    text = format_strong(check_strong)
-
-                # Simplified check for italic
-                check_italic = re.match('(.*)_(.*)_(.*)', text)
-                if check_italic:
-                    text = format_italic(check_italic)
-
                 line = '<li>' + text + '</li>'
         else:
             if in_list:
