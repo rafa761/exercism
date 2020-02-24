@@ -32,6 +32,4 @@ def verify(isbn=str):
             validation_list.append(int(num) * count)
             count -= 1
 
-        validate_cod = (sum(validation_list) + sum_x) % 11 == 0
-
-        return validate_cod
+        return (sum(validation_list) + sum_x) % 11 == 0

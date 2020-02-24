@@ -2,20 +2,18 @@
 # import difflib
 
 def distance(strand_a, strand_b):
-    diff_count = 0
     if len(strand_a) != len(strand_b):
         raise ValueError("The strands doesn't have the same length")
+    diff_count = 0
+    if (len(strand_a) == 1) and (len(strand_b) == 1):
+        if strand_a != strand_b:
+            diff_count += 1
     else:
-        if (len(strand_a) == 1) and (len(strand_b) == 1):
-            if strand_a != strand_b:
+        for index_a, char_a in enumerate(strand_a):
+            char_b = strand_b[index_a]
+            if char_a != char_b:
                 diff_count += 1
-            return diff_count
-        else:
-            for index_a, char_a in enumerate(strand_a):
-                char_b = strand_b[index_a]
-                if char_a != char_b:
-                    diff_count += 1
-            return diff_count
+    return diff_count
 
 
 

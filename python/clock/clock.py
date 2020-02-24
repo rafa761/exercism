@@ -4,11 +4,7 @@ class Clock(object):
         self.set_minutes(minutes)
 
     def set_hour(self, hours):
-        if hours >= 0:
-            hours = hours % 24
-        else:
-            hours = (hours % 24)
-
+        hours = hours % 24
         self.hours = hours
 
     def set_minutes(self, minutes):

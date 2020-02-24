@@ -9,11 +9,7 @@ def is_isogram(string):
         if char in ascii_lowercase:
             char_dict.update({char: str(string).lower().count(char)})
 
-    for key, value in char_dict.items():
-        if value != 1:
-            return False
-    return True
-
+    return all(value == 1 for key, value in char_dict.items())
     # This doesn't worked
     # if all(list(map(lambda x: x == 1, char_dict))):
     #     return True

@@ -20,7 +20,4 @@ class Matrix(object):
         return self.matrix[index - 1]
 
     def column(self, index):
-        lst_column = []
-        for column in self.matrix:
-            lst_column.append(column[index - 1])
-        return lst_column
+        return [column[index - 1] for column in self.matrix]
